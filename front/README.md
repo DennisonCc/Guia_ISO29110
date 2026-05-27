@@ -1,36 +1,93 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Guía Interactiva ISO/IEC 29110 — Frontend
 
-## Getting Started
+Aplicación web construida con **Next.js 16** que implementa la guía interactiva de la norma ISO/IEC 29110 para Entidades Muy Pequeñas (VSEs).
 
-First, run the development server:
+---
+
+## 👥 Integrantes
+
+| Nombre | 
+|--------|
+| Chalacan Dennison |
+| Carlos Ñato |
+| Cesar Loor |
+| Enrique Chave |
+
+---
+
+## 🚀 Inicio rápido
 
 ```bash
+# Instalar dependencias
+npm install
+
+# Servidor de desarrollo
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Build de producción
+npm run build
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abrir [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📁 Estructura
 
-## Learn More
+```
+app/
+├── page.tsx              # Dashboard con stepper de fases
+├── layout.tsx            # Layout raíz con ThemeProvider
+├── globals.css           # Estilos globales y variables CSS
+└── docs/
+    ├── layout.tsx        # Layout con sidebar
+    └── [slug]/page.tsx   # Página dinámica por fase
 
-To learn more about Next.js, take a look at the following resources:
+components/
+├── PhasesStepper.tsx     # Cards de fase con estados lock/active/done
+├── TaskChecklist.tsx     # Checklists interactivos con disabled support
+├── ProgressBar.tsx       # Barra de progreso animada
+├── standard-content.tsx  # Vista detallada con secciones colapsables
+├── sidebar.tsx           # Navegación con progreso por fase
+├── theme-toggle.tsx      # Toggle modo oscuro/claro
+└── ui/                   # Componentes shadcn/ui
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+data/
+└── iso-standards.ts      # 5 fases × secciones × tareas (TypeScript)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+hooks/
+└── useProgress.ts        # Estado de progreso con localStorage
+```
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🔧 Variables de entorno
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+No se requieren variables de entorno. El progreso del usuario se guarda automáticamente en `localStorage` del navegador.
+
+---
+
+## 📦 Dependencias principales
+
+| Paquete | Versión | Uso |
+|---------|---------|-----|
+| `next` | 16.2.6 | Framework |
+| `react` | 19.2.4 | UI Library |
+| `tailwindcss` | ^4 | Estilos |
+| `lucide-react` | ^1.16 | Iconos |
+| `next-themes` | ^0.4.6 | Modo oscuro |
+| `@radix-ui/*` | latest | Componentes UI accesibles |
+
+---
+
+## 🌐 Rutas
+
+| Ruta | Descripción |
+|------|-------------|
+| `/` | Dashboard principal con flujo de 5 fases |
+| `/docs/fundamentos` | Fase 1 — Fundamentos del Estándar |
+| `/docs/perfil-entry` | Fase 2 — Perfil Entry |
+| `/docs/perfil-basico` | Fase 3 — Perfil Básico |
+| `/docs/perfil-intermedio` | Fase 4 — Perfil Intermedio |
+| `/docs/perfil-avanzado` | Fase 5 — Perfil Avanzado |
