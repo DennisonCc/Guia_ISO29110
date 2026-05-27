@@ -2,7 +2,7 @@
 
 interface ProgressBarProps {
   percentage: number
-  color?: "blue" | "violet" | "indigo" | "amber" | "emerald" | "gray"
+  color?: "blue" | "violet" | "indigo" | "amber" | "emerald" | "rose" | "gray"
   size?: "sm" | "md" | "lg"
   showLabel?: boolean
   animated?: boolean
@@ -15,6 +15,7 @@ const colorMap = {
   indigo: "bg-indigo-500",
   amber: "bg-amber-500",
   emerald: "bg-emerald-500",
+  rose: "bg-rose-500",
   gray: "bg-muted-foreground/40",
 }
 

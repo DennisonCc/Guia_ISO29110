@@ -8,7 +8,7 @@ interface TaskChecklistProps {
   tasks: Task[]
   isTaskComplete: (sectionId: string, taskId: string) => boolean
   onToggle: (sectionId: string, taskId: string) => void
-  color?: "blue" | "violet" | "indigo" | "amber" | "emerald"
+  color?: "blue" | "violet" | "indigo" | "amber" | "emerald" | "rose"
   disabled?: boolean
 }
 
@@ -47,6 +47,13 @@ const colorMap = {
     border: "border-emerald-200 dark:border-emerald-800",
     hover: "hover:bg-emerald-100/60 dark:hover:bg-emerald-900/30",
     label: "text-emerald-900 dark:text-emerald-100",
+  },
+  rose: {
+    check: "text-rose-500",
+    bg: "bg-rose-50 dark:bg-rose-950/30",
+    border: "border-rose-200 dark:border-rose-800",
+    hover: "hover:bg-rose-100/60 dark:hover:bg-rose-900/30",
+    label: "text-rose-900 dark:text-rose-100",
   },
 }
 

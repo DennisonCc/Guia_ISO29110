@@ -70,6 +70,17 @@ const colorConfig = {
     icon: "bg-emerald-500",
     iconRing: "ring-emerald-200 dark:ring-emerald-800",
   },
+  rose: {
+    gradient: "from-rose-500 to-rose-600",
+    ring: "ring-rose-300 dark:ring-rose-700",
+    badge: "bg-rose-100 text-rose-700 dark:bg-rose-900/60 dark:text-rose-300",
+    glow: "shadow-rose-500/20",
+    progress: "rose" as const,
+    activeBg: "bg-rose-50/50 dark:bg-rose-950/20",
+    activeBorder: "border-rose-300 dark:border-rose-700",
+    icon: "bg-rose-500",
+    iconRing: "ring-rose-200 dark:ring-rose-800",
+  },
 }
 
 function PhaseCard({ phase, isUnlocked, isComplete, isActive, progress, isLast }: PhaseCardProps) {

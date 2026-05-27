@@ -16,6 +16,7 @@ const colorDot = {
   indigo: "bg-indigo-500",
   amber: "bg-amber-500",
   emerald: "bg-emerald-500",
+  rose: "bg-rose-500",
 }
 
 export function Sidebar() {
